@@ -273,9 +273,16 @@ def handle_response_model(
                 new_kwargs["messages"].insert(
                     0,
                     {
-                        "role": "system",
+                        "role": "user",
                         "content": message,
                     },
+                )
+                new_kwargs["messages"].insert(
+                    1,
+                    {
+                        "role":"assistant",
+                        "content": "Ok, I understood. Ask me anything and I will respect that schema"
+                    }
                 )
             # if it is, system append the schema to the end
             else:
