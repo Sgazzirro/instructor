@@ -80,10 +80,10 @@ def reask_messages(response: ChatCompletion, mode: Mode, exception: Exception):
                 "name": tool_call.function.name,
                 "content": f"Validation Error found:\n{exception}\nRecall the function correctly, fix the errors",
             }
-    elif mode == Mode.MD_JSON:
+    elif mode == Mode.MD_JSON or mode== Mode.JSON:
         yield {
             "role": "user",
-            "content": f"Correct your JSON ONLY RESPONSE, based on the following errors:\n{exception}",
+            "content": f"Correct your JSON ONLY RESPONSE, based on the following errors:\n{exception}. Maybe you have inserted strange escape characters or the JSON is not well formatted.",
         }
     else:
         yield {
