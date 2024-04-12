@@ -254,7 +254,7 @@ def handle_response_model(
             #if mode == Mode.JSON:
             #    new_kwargs["response_format"] = {"type": "json_object"}
 
-            elif mode == Mode.JSON_SCHEMA:
+            if mode == Mode.JSON_SCHEMA:
                 new_kwargs["response_format"] = {
                     "type": "json_object",
                     "schema": response_model.model_json_schema(),
